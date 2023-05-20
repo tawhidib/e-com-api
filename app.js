@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const usersRoute = require("./src/routes/users");
 const port = 5000;
 
 // database connection
@@ -10,6 +11,8 @@ db.dbConnectionFunc();
 app.use(express.json());
 
 // routes
+app.use("/api/users", usersRoute);
+
 app.get("/test", (req, res) => {
   res.send("This is test api");
   res.end();
