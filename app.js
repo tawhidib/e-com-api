@@ -11,7 +11,8 @@ dbConnect();
 app.use(express.json());
 
 // routes
-app.use("/api/users", usersRoute);
+const GlobalPrefix = "/api/v1";
+app.use(GlobalPrefix + "/users", usersRoute);
 
 app.get("/test", (req, res) => {
   res.send("This is test api");
