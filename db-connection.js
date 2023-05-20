@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const dbConnectionFunc = async () => {
   await mongoose
-    .connect("mongodb://localhost:27017/e-com-db")
+    .connect(process.env.Mongo_URL)
     .then(() => console.log("Database Connected"))
     .catch((err) => console.log(err));
 };
 
-module.exports = {
-  dbConnectionFunc,
-};
+module.exports = dbConnectionFunc;

@@ -4,8 +4,8 @@ const usersRoute = require("./src/routes/users");
 const port = 5000;
 
 // database connection
-const db = require("./db-connection");
-db.dbConnectionFunc();
+const dbConnect = require("./db-connection");
+dbConnect();
 
 // middleware
 app.use(express.json());
